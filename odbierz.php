@@ -11,7 +11,7 @@ if (is_uploaded_file($_FILES['plik']['tmp_name']))
 if ($_FILES['plik']['size'] > $max_rozmiar) {echo "Przekroczenie rozmiaru $max_rozmiar"; }
 else
 {
-move_uploaded_file($_FILES['plik']['tmp_name'],$login/$_FILES['plik']['name']);
+move_uploaded_file($_FILES['plik']['tmp_name'],$_SERVER['DOCUMENT_ROOT']/z7/$login/$_FILES['plik']['name']);
 echo 'Odebrano plik: '.$_FILES['plik']['name'].'<br/>';
 if (isset($_FILES['plik']['type'])) {echo 'Typ: '.$_FILES['plik']['type'].'<br/>'; }
 
