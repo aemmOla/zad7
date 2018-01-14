@@ -18,7 +18,7 @@ if (empty($_POST['login'])||empty($_POST['haslo'])||empty($_POST['imie'])||empty
 	echo "Uzupełnij wszystkie pola!";
 	print "<a href='rejestracja.php'>Spróbuj jeszcze raz</a>";
 }
-else if ($rez4==true)																//podany login jest już w użytku
+else{ if ($rez4==true)																//podany login jest już w użytku
 {
 echo "Podany login już istnieje. Podaj inny.";
 	print "<a href='rejestracja.php'>Spróbuj jeszcze raz</a>";
@@ -27,9 +27,12 @@ else																				//dodanie nowego użytkownika
 {
 	$zap2="INSERT INTO `users2`(`imie`,`nazwisko`,`login`, `haslo`,`lp`) VALUES ('$imie','$nazwisko','$log','$haslo','0')";
 	$rezult= mysqli_query ($polaczenie,$zap2);
-	mkdir ($log, 0777);
+mkdir ("$log", 0777);
+
+
 	print "Dodano poprawnie nowego użytkownika.<br>";
 	print "<a href='logowanie.php'>Zaloguj się</a>";
+}
 }
 ?>
 </body>
